@@ -27,6 +27,7 @@ public class NoDoListAdapter extends  RecyclerView.Adapter<NoDoListAdapter.ViewH
 
     public void setNodo(List<NoDo> nodo) {
         this.nodo = nodo;
+        notifyDataSetChanged();
 
     }
 
@@ -41,12 +42,8 @@ public class NoDoListAdapter extends  RecyclerView.Adapter<NoDoListAdapter.ViewH
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        if(nodo.size() == 0){
-            holder.textView.setText("No Do");
-        }else{
-        holder.textView.setText(nodo.get(position).getNoDo());
 
-        }
+        holder.textView.setText(nodo.get(position).getNoDo());
 
 
     }

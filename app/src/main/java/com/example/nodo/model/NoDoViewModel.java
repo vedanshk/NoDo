@@ -1,6 +1,7 @@
 package com.example.nodo.model;
 
 import android.app.Application;
+import android.content.Context;
 import android.hardware.lights.LightState;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ public class NoDoViewModel extends AndroidViewModel {
 
     }
 
-    LiveData<List<NoDo>> getAllNoDoes(){
+    public LiveData<List<NoDo>> getAllNoDoes(){
 
         return allNoDoes;
     }

@@ -27,7 +27,8 @@ public abstract class  NoDoRoomDatabase extends RoomDatabase {
 
                         instance  = Room.databaseBuilder(context.getApplicationContext() ,
                                 NoDoRoomDatabase.class , "nodo_database"
-                                ).build();
+                                ).addCallback(roomDatabaseCallback).
+                                build();
                     }
                 }
             }
@@ -60,6 +61,14 @@ public abstract class  NoDoRoomDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             noDoDao.deleteAll(); // removes all items form our table
+
+            NoDo noDo = new NoDo("Buy a new Ferrari");
+            noDoDao.insert(noDo);
+
+            NoDo noDo1 = new NoDo("Buy Big house");
+
+            noDoDao.insert(noDo1);
+
             return null;
         }
     }
